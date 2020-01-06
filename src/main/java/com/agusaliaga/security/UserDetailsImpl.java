@@ -36,17 +36,17 @@ public class UserDetailsImpl implements UserDetails {
 		this.authorities = authorities;
 	}
 	
-	/* Builder Method to build a UserDetailsImplementation, returning an Object with User id, name, email, passwd
+	/**
+	 * Builder Method to build a UserDetailsImplementation, returning an Object with User id, name, email, passwd
 	 * and authorities (roles).
-	 * we convert Set<Role> into List<GrantedAuthority>. 
-	 * It is important to work with Spring Security and Authentication object later.*/
-	/* user.getRoles() returns a Set<Role>, we convert this Set to a Stream of Role. 
+	 * we convert Set<Role> into List<GrantedAuthority>.
+	 * user.getRoles() returns a Set<Role>, we convert this Set to a Stream of Role. 
 	 * Imagine that the stream is a collection of Role that releases items in turn.
 	 * map() changes every Role item to a SimpleGrantedAuthority object, the parameter for the 
 	 * constructor could be one of these Strings: ‘ROLE_USER’, ‘ROLE_MODERATOR’, ‘ROLE_ADMIN’.
 	 * So, what does role.getName().name() do?
 	 * role.getName() returns ERole enum object, let’s call it erole_object.
-	 * */
+	 **/
 	public static UserDetailsImpl build(User user) {
 		List<GrantedAuthority> authorities = user.getRoles().stream()
 				.map(role -> new SimpleGrantedAuthority(role.getName().name()))
