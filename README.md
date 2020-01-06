@@ -1,5 +1,5 @@
 # springsecurityapp
-Spring Boot + Spring Security (with JWT) + H2 database + Hibernate &amp; JPA + Swagger + MAVEN
+Spring Boot + Spring Security (with JWT) + H2 database + JPA + Swagger + MAVEN
 
 To run the app: mvn spring-boot:run
 
